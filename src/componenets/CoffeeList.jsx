@@ -21,7 +21,7 @@ const coffees = [
   },
 ];
 
-export default function CoffeeList() {
+export default function CoffeeList({ onAddToCart }) {
   return (
     <div className="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
       {coffees.map((coffee) => (
@@ -30,6 +30,7 @@ export default function CoffeeList() {
           name={coffee.name}
           description={coffee.description}
           price={coffee.price}
+          onAddToCart={onAddToCart}
         />
       ))}
     </div>
