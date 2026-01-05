@@ -1,9 +1,9 @@
-export default function CoffeeCard() {
+export default function CoffeeCard({ name, description, price }) {
   return (
     <div className="bg-white p-4 rounded shadow">
-      <h2 className="text-lg font-bold">Cappuccino</h2>
-      <p className="text-gray-600">Rich and foamy coffee</p>
-      <p className="front-semibold mt-2">Rs.199</p>
+      <h2 className="text-lg font-bold">{name}</h2>
+      <p className="text-gray-600">{description} and foamy coffee</p>
+      <p className="front-semibold mt-2">Rs.{price}</p>
       <button className="mt-3 bg-[#6f4e37] text-white px-4 py-2 rounded">
         Add to Cart
       </button>
