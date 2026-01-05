@@ -1,14 +1,11 @@
-import { BrowserRouter, Routes, Route } from "react-router";
-import Home from "./pages/Home";
-import Analytics from "./pages/Analytics";
+import Navbar from "./componenets/Navbar"
+import CoffeeList from "./componenets/CoffeeList"
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/analytics" element={<Analytics />} />
-      </Routes>
-    </BrowserRouter>
+    <div className="min-h-screen bg-[#f5f5f5] p-6">
+      <Navbar />
+      <CoffeeList />
+    </div>
   );
 }
