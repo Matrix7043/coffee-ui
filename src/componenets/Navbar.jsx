@@ -1,7 +1,9 @@
-export default function Navbar({ cartCount, clearCart }) {
+export default function Navbar({ cart, clearCart }) {
+  const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
+
   return (
     <nav className="bg-[#3e2723] text-white p-4 flex justify-between">
-      <h1 className="text-xl font-bold">Coffee Store</h1>
+      <h1 className="text-xl font-bold">☕ Coffee Store</h1>
       <div className="flex items-center gap-4">
         <span>Cart ({cartCount})</span>
         <button onClick={clearCart}

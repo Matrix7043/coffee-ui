@@ -3,17 +3,28 @@ import CoffeeList from "./componenets/CoffeeList";
 import { useState } from "react";
 
 export default function App() {
-  const [cartCount, setCartCount] = useState(0);
+  const [cart, setCart] = useState([]);
 
-  function addToCart() {
-    setCartCount((prev) => prev + 1);
+  function addToCart(coffee) {
+    setCart((prevCart) => {
+      const existing = prevCart.find(item => item.id === coffee.id);
+
+      if (existing) {
+        return prevCart.map(item =>
+          item.id === coffee.id ? { ...item, qty: item.qty + 1 }
+            : item
+        );
+      }
+
+      return [...prevCart, { ...coffee, qty: 1 }];
+    });
   }
   function clearCart() {
-    setCartCount(0);
+    setCart([]);
   }
   return (
     <div className="min-h-screen bg-[#f5f5f5] p-6">
-      <Navbar cartCount={cartCount} clearCart={clearCart} />
+      <Navbar cart={cart} clearCart={clearCart} />
       <CoffeeList onAddToCart={addToCart} />
     </div>
   );
