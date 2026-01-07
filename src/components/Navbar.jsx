@@ -1,4 +1,8 @@
-export default function Navbar({ cart, clearCart }) {
+import { useCart } from "../context/CartContext";
+
+export default function Navbar() {
+  const { cart, clearCart } = useCart();
+
   const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
 
   return (

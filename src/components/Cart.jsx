@@ -1,4 +1,8 @@
-export default function Cart({ cart, onIncrement, onDecrement }) {
+import { useCart } from "../context/CartContext";
+
+export default function Cart() {
+
+  const { cart, incrementItem, decrementItem } = useCart();
 
   if (cart.length === 0) {
     return (
@@ -26,11 +30,11 @@ export default function Cart({ cart, onIncrement, onDecrement }) {
             </div>
             <div className="flex items-center gap-2">
               <button
-                onClick={() => onDecrement(item.id)}
+                onClick={() => decrementItem(item.id)}
                 className="px-2 py-1 bg-gray-300 rounded">-</button>
               <span>{item.qty}</span>
               <button
-                onClick={() => onIncrement(item.id)}
+                onClick={() => incrementItem(item.id)}
                 className="px-2 py-1 bg-gray-300 rounded">+</button>
             </div>
           </li>
