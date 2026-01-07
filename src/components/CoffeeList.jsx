@@ -27,6 +27,7 @@ export default function CoffeeList({ onAddToCart }) {
       {coffees.map((coffee) => (
         <CoffeeCard
           key={coffee.id}
+          id={coffee.id}
           name={coffee.name}
           description={coffee.description}
           price={coffee.price}
