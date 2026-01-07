@@ -1,20 +1,20 @@
-import Navbar from "./componenets/Navbar";
-import CoffeeList from "./componenets/CoffeeList";
-import { useState } from "react";
+import Navbar from "./components/Navbar";
+import { Routes, Route } from "react-router";
+import Home from "./pages/Home.jsx";
+import CartPage from "./pages/CartPage.jsx";
+
 
 export default function App() {
-  const [cartCount, setCartCount] = useState(0);
 
-  function addToCart() {
-    setCartCount((prev) => prev + 1);
-  }
-  function clearCart() {
-    setCartCount(0);
-  }
   return (
     <div className="min-h-screen bg-[#f5f5f5] p-6">
-      <Navbar cartCount={cartCount} clearCart={clearCart} />
-      <CoffeeList onAddToCart={addToCart} />
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<CartPage />} />
+      </Routes>
+
     </div>
   );
 }
