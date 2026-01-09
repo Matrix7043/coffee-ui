@@ -3,6 +3,8 @@ import { Routes, Route } from "react-router";
 import Home from "./pages/Home.jsx";
 import CartPage from "./pages/CartPage.jsx";
 import CoffeeDetail from "./pages/CoffeeDetails.jsx";
+import Success from "./pages/Success.jsx"
+import Checkout from "./pages/Checkout.jsx"
 
 
 export default function App() {
@@ -15,6 +17,8 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/coffee/:id" element={<CoffeeDetail />} />
+        <Route path="/success" element={<Success />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
 
     </div>
