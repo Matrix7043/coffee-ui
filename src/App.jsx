@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router";
 import Home from "./pages/Home.jsx";
 import CartPage from "./pages/CartPage.jsx";
+import CoffeeDetail from "./pages/CoffeeDetails.jsx";
 
 
 export default function App() {
@@ -13,6 +14,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/coffee/:id" element={<CoffeeDetail />} />
       </Routes>
 
     </div>
