@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 import { useCart } from "../context/CartContext";
 
 export default function Cart() {
@@ -11,6 +12,13 @@ export default function Cart() {
       </div>
     );
   }
+
+  const navigate = useNavigate();
+
+  const total = cart.reduce(
+    (sum, item) => sum + item.price * item.qty,
+    0
+  );
 
   return (
     <div className="p-6 max-w-xl mx-auto bg-while rounded shadow">
@@ -40,6 +48,16 @@ export default function Cart() {
           </li>
         ))}
       </ul>
+
+      <div className="font-bold text-right mt-4">
+        Total: Rs.{total}
+      </div>
+
+      <button onClick={() => navigate("/checkout")}
+        className="mt-4 w-full bg-blue-600 text-white py-2 rounded">
+        Proceed to Checkout
+      </button>
+
     </div>
   );
 
